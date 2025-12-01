@@ -33,7 +33,7 @@ part2 input = go 0 50 (lines input)
   where
     go count _ [] = count
     go count cur (x : xs) = case move' cur (parse x) of
-        (0, c) -> go (count + c) 0 xs
+        (0, c) -> go (count + c + 1) 0 xs
         (cur', c) -> go (count + c) cur' xs
 
 type Count = Int
@@ -46,6 +46,22 @@ move' val d = case d of
   where
     go pos (v, c)
         | pos == 0 && v < 0 = go (100 + v) (100 + v, c)
+        | v == 100 = (0, c)
         | v < 0 = go (v + 100) (v + 100, c + 1)
         | v > 99 = go (v - 100) (v - 100, c + 1)
         | otherwise = (v, c)
+
+-- >>> test
+-- 7
+test =
+    part2
+        "L68\n\
+        \L30\n\
+        \R48\n\
+        \L5\n\
+        \R60\n\
+        \L55\n\
+        \L1\n\
+        \L99\n\
+        \R14\n\
+        \L82"
