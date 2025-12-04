@@ -1,0 +1,19 @@
+cabal-version:   3.14
+name:            day4
+version:         0.1.0.0
+license:         NONE
+author:          oliverpauffley
+maintainer:      mrpauffley@gmail.com
+build-type:      Simple
+extra-doc-files: CHANGELOG.md
+
+common warnings
+    ghc-options: -Wall
+
+executable day4
+    import:           warnings
+    main-is:          Main.hs
+    build-depends:    base ^>=4.19.2.0
+                      , array
+    hs-source-dirs:   app
+    default-language: Haskell2010
