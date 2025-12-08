@@ -1,7 +1,6 @@
 module Main where
 import Data.Array
 import Data.Maybe (catMaybes)
-import Debug.Trace (traceShow)
 
 main :: IO ()
 main = do
@@ -48,7 +47,7 @@ solve' arr ((i,'@'):xs) acc = if isAccessible i then solve' arr xs (i:acc) else 
 
 
 testCase =
-   "..@@.@@@@.\n\
+   "..@.@@@@.\n\
    \@@@.@.@.@@\n\
    \@@@@@.@.@@\n\
    \@.@@@@..@.\n\
